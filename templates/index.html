@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Collegamento corretto al CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>scheda_bot</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <nav class="header__nav main-nav">
+        <ul class="main-nav__list main-list">
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#home">HOME</a>
+          </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#about">CHI SONO</a>
+          </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#test">TESTAMI</a>
+          </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#feedback">FEEDBACK</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main">
+
+      <!-- HOME -->
+      <section class="main__home home" id="home">
+        <h1 class="home__title">CIUCCIONAPOLETANO</h1>
+        <p class="home__subtitle">BOT DISCORD IN GRADO DI RICONOSCERE 2 RAZZE DI CANI</p>
+
+        
+        <img 
+          src="{{ url_for('static', filename='img/napoli.png') }}" 
+          alt="logo-bot"
+          width="300"
+          height="300"
+          style="margin-top: 20px;"
+        />
+      </section>
+
+      <!-- ABOUT -->
+      <section class="main__about about" id="about">
+        <h2 class="about__title">CHI SONO</h2>
+
+        <div class="about__info info-block">
+          <p class="info-block__text">
+            Ciao! Mi chiamo Ciuccionapoletano e sono un bot Discord creato per riconoscere due razze di cani: il barboncino e il jack russell.
+            Sono stato sviluppato utilizzando Python e utilizzo algoritmi di Teachable Machine per analizzare le immagini dei cani e fornire risultati accurati.
+          </p>
+
+          <img
+            class="info-block__img"
+            src="{{ url_for('static', filename='img/napoli.png') }}"
+            alt="me"
+            width="250"
+            height="250"
+          />
+        </div>
+      </section>
+
+      <!-- TESTAMI (stile identico a CHI SONO) -->
+      <section class="main__test test" id="test">
+        <h2 class="about__title">TESTAMI</h2>
+
+        <div class="about__info info-block">
+          <p class="info-block__text">
+            Vuoi provare il bot Ciuccionapoletano?  
+            Clicca sull’immagine qui accanto per testare il riconoscimento delle razze canine.  
+            Il bot analizzerà l’immagine e ti dirà se si tratta di un barboncino o di un jack russell.
+          </p>
+
+          <a href="https://discord.gg/Qz65ykaJ" target="_blank">
+            <img
+              class="info-block__img"
+              src="{{ url_for('static', filename='img/discord.png') }}"
+              alt="testami"
+              width="250"
+              height="250"
+              style="cursor: pointer;"
+            />
+          </a>
+        </div>
+      </section>
+
+      <!-- FEEDBACK -->
+      <section class="main__feedback feedback" id="feedback">
+        <h2 class="feedback__title">FEEDBACK</h2>
+
+        <form action="/submit_feedback" method="POST" class="feedback__form form">
+
+          <label for="name">
+            <input type="text" class="form__input" name="name" id="name"
+              placeholder="Inserire il nome" required>
+          </label>
+
+          <label for="email">
+            <input type="email" class="form__input" name="email" id="email"
+              placeholder="Inserire l'e-mail" required>
+          </label>
+
+          <label for="message">
+            <textarea name="message" class="form__input" id="message"
+              cols="70" rows="10" required placeholder="Commenti"></textarea>
+          </label>
+
+          <button class="form__button" type="submit">INVIA</button>
+        </form>
+      </section>
+
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
