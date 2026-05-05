@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>Feedback Inviato</title>
+</head>
+
+<body>
+  <section class="home" style="text-align: center; padding: 80px 20px;">
+    <h1>Grazie per il tuo feedback!</h1>
+    <p>Il tuo messaggio è stato inviato correttamente.</p>
+
+    <a href="{{ url_for('index') }}" class="form__button" style="margin-top: 30px; display: inline-block;">
+      Torna alla Home
+    </a>
+  </section>
+</body>
+</html>

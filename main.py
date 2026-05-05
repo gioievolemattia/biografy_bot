@@ -1,4 +1,4 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -25,12 +25,15 @@ def submit_feedback():
     db.session.add(feedback)
     db.session.commit()
 
-    return 'ricevuto, grazie!'
+    # Reindirizza alla pagina di successo
+    return redirect(url_for('feedback_success'))
+
+@app.route('/feedback_success')
+def feedback_success():
+    return render_template('feedback_success.html')
 
 with app.app_context():
     db.create_all()
 
-
 if __name__ == "__main__":
     app.run(debug=True)
-
