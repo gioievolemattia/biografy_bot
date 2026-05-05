@@ -317,7 +317,7 @@ ul {
 .form__input:focus,
 .form__input:focus-visible {
   border: none;
-}
+}     
 
 
 .form__button {
