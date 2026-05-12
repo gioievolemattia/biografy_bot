@@ -25,9 +25,7 @@ def submit_feedback():
     db.session.add(feedback)
     db.session.commit()
 
-    # Reindirizza alla pagina di successo
     return redirect(url_for('feedback_success'))
-
 @app.route('/feedback_success')
 def feedback_success():
     return render_template('feedback_success.html')
@@ -35,5 +33,10 @@ def feedback_success():
 with app.app_context():
     db.create_all()
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    # Railway assegna una porta variabile, questo codice la intercetta
+    port = int(os.environ.get("PORT", 5000))
+    # '0.0.0.0' serve per rendere il sito visibile all'esterno
+    app.run(host='0.0.0.0', port=port)
